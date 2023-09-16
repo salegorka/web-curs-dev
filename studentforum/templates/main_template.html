@@ -1,0 +1,76 @@
+{% extends 'base_tempate.html' %}
+
+{% block body %}
+
+{% block header %}
+<div class="header">
+    <div class="header-top">
+        {% load static%}
+        <img src="{% static '/img/logo.png' %}" class="logo-img" alt="Логотип">
+        <p class="logo-text">
+            Сайт для абитуриентов Института нефтепереработки и нефтехимии ФГБОУ ВО УГНТУ в г. Салават
+        </p>
+    </div>
+    <div class="header-img">
+    </div>
+    <div class="header-bottom">
+        <div class="button-login">Войти</div>
+    </div>
+</div>
+{% endblock %}
+
+{% block main %}
+<div class="main">
+
+    {% block content %}
+    
+    {% block sidebar %}
+    <div class="main-right">
+        <div class="menu">
+            <h1 class="menu-header">
+                Меню сайта
+            </h1>
+            <ul class="menu-list">
+                <a href="/index.html" class="menu-item-link">
+                    <li class="menu-item">
+                        Новости
+                    </li>
+                </a>
+                <a href="/cafedra.html" class="menu-item-link">
+                    <li class="menu-item">
+                        Кафедры
+                    </li>
+                </a>
+                <a href="/entry.html" class="menu-item-link">
+                    <li class="menu-item">
+                        Поступление
+                    </li>
+                </a>
+                <a href="#" class="menu-item-link">
+                    <li class="menu-item">
+                        Cтуденческие возможности
+                    </li>
+                </a>
+                <a href="#" class="menu-item-link">
+                    <li class="menu-item">
+                        Страница 5
+                    </li>
+                </a>
+            </ul>
+        </div>
+    </div>
+    {% endblock %}
+</div>
+{% endblock %}
+
+{% block footer %}
+<div class="footer">
+    <div class="footer-info">
+        <p class="footer-text">
+            Выполнил: Егор Саломатин, БАБз-19-21. Все права защищены &copy;
+        </p>
+    </div>
+</div>
+{% endblock %}
+
+{% endblock %}
