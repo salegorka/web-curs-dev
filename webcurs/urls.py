@@ -21,7 +21,7 @@ from django.urls import include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
-    path('forum/', include('studentForum.urls'))
+    path('forum/', include('studentforum.urls'))
 ]
 
 from django.views.generic import RedirectView

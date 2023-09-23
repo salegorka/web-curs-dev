@@ -33,11 +33,11 @@ class Post(models.Model):
 class ParentTheme(models.Model):
     """
 
-    Модель представляющая форму родителя
+    Модель представляющая тему родителя
 
     """
-    parent_theme = models.ForeignKey('Theme', on_delete=models.PROTECT)
-    child_theme = models.ForeignKey('Theme', on_delete=models.CASCADE)
+    parent_theme = models.ForeignKey('Theme', related_name="ParentTheme", on_delete=models.PROTECT)
+    child_theme = models.ForeignKey('Theme', related_name="ChildTheme", on_delete=models.CASCADE)
 
     def __str__(self):
         return "Связь сообщений %s %s" % (self.parent_theme.name, self.child_theme.name)

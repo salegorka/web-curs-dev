@@ -1,0 +1,46 @@
+{%extends 'main_template.html' %}
+
+{% block main %}
+<div class="main">
+
+    {% block content %}
+    {% endblock %}
+    
+    {% block sidebar %}
+    <div class="main-right">
+        <div class="menu">
+            <h1 class="menu-header">
+                Меню сайта
+            </h1>
+            <ul class="menu-list">
+                <a href="/index.html" class="menu-item-link">
+                    <li class="menu-item">
+                        Новости
+                    </li>
+                </a>
+                <a href="/cafedra.html" class="menu-item-link">
+                    <li class="menu-item">
+                        Кафедры
+                    </li>
+                </a>
+                <a href="/entry.html" class="menu-item-link">
+                    <li class="menu-item">
+                        Поступление
+                    </li>
+                </a>
+                <a href="#" class="menu-item-link">
+                    <li class="menu-item">
+                        Cтуденческие возможности
+                    </li>
+                </a>
+                <a href="#" class="menu-item-link">
+                    <li class="menu-item">
+                        Страница 5
+                    </li>
+                </a>
+            </ul>
+        </div>
+    </div>
+    {% endblock %}
+</div>
+{% endblock %}
