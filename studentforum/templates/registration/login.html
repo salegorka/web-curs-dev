@@ -3,20 +3,23 @@
 {% block main %}
 
 <div class="login-form">
-    <form class="login-form-form" method="POST" action="login1.html">
+    <form class="login-form-form" method="POST" action="">
+        {% csrf_token %}
         <div class="login-form-error">
-            <p class="login-form-error-text">Ошибка формы</p>
+            {% if form.errors %}
+                <p class="login-form-error-text"> Имя пользователя или пароль не совпадают. Попробуйте еще раз. </p>
+            {% endif %}
         </div>
         <div class="login-form-name">
             <p class="login-form-name-text">Имя пользователя</p>
-            <input class="login-form-name-input" type="password">
+            {{ form.username }}
         </div>
         <div class="login-form-password">
             <p class="login-form-password-text">Пароль</p>
-            <input type="text" class="login-form-password-input">
+            {{ form.password }}
         </div>
-        <input type="submit" value="Войти">
-        <p class="input-form-reg-text">Нет аккаунта? <a href="">Зарегистрируйтесь</a></p>
+        <input class="button login-form-submit" type="submit" value="Войти">
+        <p class="login-form-reg">Нет аккаунта? <a href="">Зарегистрируйтесь</a></p>
     </form>
 </div>
 

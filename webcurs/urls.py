@@ -21,11 +21,11 @@ from django.urls import include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
-    path('forum/', include('studentforum.urls'))
+    path('main/', include('studentforum.urls'))
 ]
 
 from django.views.generic import RedirectView
 
 urlpatterns += [
-    path('', RedirectView.as_view(url='/forum/', permanent=True))
+    path('', RedirectView.as_view(url='/main/', permanent=True))
 ]
