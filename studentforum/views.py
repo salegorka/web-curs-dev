@@ -51,4 +51,4 @@ def question(request):
     Функция для отображения страницы с вопросами пользователей
     
     """    
-    
+    return render(request, 'question.html')
