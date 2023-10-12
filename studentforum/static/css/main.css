@@ -187,6 +187,19 @@ body {
     font: 500 14px/14px "Montserrat";
 }
 
+.login-form-email {
+    width: 100%;
+    margin: 10px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.login-form-email > input {
+    width: 200px;
+    font: 500 14px/14px "Montserrat";
+}
+
 .login-form-password {
     width: 100%;
     margin: 10px 0;

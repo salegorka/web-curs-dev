@@ -41,3 +41,29 @@ class ParentTheme(models.Model):
 
     def __str__(self):
         return "Связь сообщений %s %s" % (self.parent_theme.name, self.child_theme.name)
+    
+class Question(models.Model):
+    """
+    
+    Модель представляющая вопрос для студента
+    
+    """
+    author = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    question = models.TextField(max_length=100, help_text="Вопрос абитуриента")
+    answered = models.BooleanField(default=False)
+
+    def __str__(self):
+        return "Вопрос"
+
+class Answer(models.Model):
+    """
+    
+    Модель представляющая ответы на вопросы абитуриента
+    
+    """
+    question = models.ForeignKey(Question, on_delete=models.CASCADE)
+    author = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    answer = models.TextField(max_length=1000, help_text="Ответ на вопрос абитуриента")
+
+    def __str__(self):
+        return "Ответ"
