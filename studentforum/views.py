@@ -74,3 +74,14 @@ def question(request):
         request, 
         'question.html'
     )
+
+def cafedra(request):
+    """"
+    
+    Функция для отображения страницы с информацией о кафедрах
+    
+    """
+    return render(
+        request,
+        "cafedra.html"
+    )
