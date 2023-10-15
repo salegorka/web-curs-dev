@@ -14,7 +14,11 @@
     <div class="header-img">
     </div>
     <div class="header-bottom">
-        <a href="/accounts/login"><div class="button button-login">Войти</div></a> 
+        {% if user.is_authenticated %}
+            <a href="/accounts/logout?next=/main/logout_page"><div class="button button-login">Выйти</div></a> 
+        {% else %}
+            <a href="/accounts/login"><div class="button button-login">Войти</div></a> 
+        {% endif %}
     </div>
 </div>
 {% endblock %}
