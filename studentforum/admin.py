@@ -1,9 +1,8 @@
 from django.contrib import admin
+from .models import Student, Group, Req
 
 # Register your models here.
-from .models import Post, Theme, ParentTheme
-
-admin.site.register(Post)
-admin.site.register(Theme)
-admin.site.register(ParentTheme)
+admin.site.register(Student)
+admin.site.register(Group)
+admin.site.register(Req)
 
