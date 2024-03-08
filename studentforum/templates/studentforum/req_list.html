@@ -1,0 +1,20 @@
+{% extends "page_template.html" %}
+{% block content %}
+<div class="main-left">
+    <h1 class="main-header">Свежие заявки</h1>
+    {% if req_list %}
+    <div>
+        {% for req in req_list %}
+        <div>
+            <span>Номер студенческого: {{ req.student.number }}</span>
+            <span>Фамилия и Имя: {{req.student.first_name}} {{req.student.surname}}</span>
+            <span>Группа: {{req.student.group.name}} </span>
+            <span><a href="{{req.get_absolute_url}}">Рассмотреть</a></span>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <p class="main-text">Новых заявок нет!</p>
+    {% endif %}
+</div>
+{% endblock %}

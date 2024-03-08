@@ -28,3 +28,6 @@ def logout_page(request):
 
 class ReqListView(generic.ListView):
     model = Req
+
+class ReqDetailView(generic.DetailView):
+    model = Req

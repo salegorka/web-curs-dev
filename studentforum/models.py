@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.urls import reverse
 
 # Create your models here.
 class Group(models.Model):
@@ -27,7 +27,12 @@ class Student(models.Model):
 class Req(models.Model):
     """
     
-    Заявка на справку, содержит пока только ссылку на студента
+    Заявка на справку
     
     """
     student = models.ForeignKey(Student, on_delete=models.PROTECT)
+    process = models.BooleanField(default="False")
+
+    def get_absolute_url(self):
+        return reverse("req-detail", kwargs={"pk": self.pk})
+    
