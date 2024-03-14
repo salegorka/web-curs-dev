@@ -13,24 +13,29 @@
                 Меню сайта
             </h1>
             <ul class="menu-list">
-                <a href="/main" class="menu-item-link">
+                <a href="{% url "index" %}" class="menu-item-link">
                     <li class="menu-item">
                         Главная
                     </li>
                 </a>
-                <a href="/main/newreqs" class="menu-item-link">
+                <a href="{% url "new_reqs" %}" class="menu-item-link">
                     <li class="menu-item">
                         Новые заявки
                     </li>
                 </a>
-                <a href="#" class="menu-item-link">
+                <a href="{% url "wait_reqs" %}" class="menu-item-link">
                     <li class="menu-item">
-                        2
+                        Ожидают подписания
                     </li>
                 </a>
-                <a href="#" class="menu-item-link">
+                <a href="{% url "sign_reqs" %}" class="menu-item-link">
                     <li class="menu-item">
-                        3
+                        Ожидают выдачи
+                    </li>
+                </a>
+                <a href="{% url "done_reqs" %}" class="menu-item-link">
+                    <li class="menu-item">
+                        Выдано
                     </li>
                 </a>
             </ul>
