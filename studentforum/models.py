@@ -23,6 +23,14 @@ class Student(models.Model):
     group = models.ForeignKey(Group, on_delete=models.PROTECT)
     number = models.IntegerField()
 
+class Status(models.Model):
+    """
+    
+    Статус заявки
+    
+    """
+    id = models.IntegerField(primary_key=True)
+    name = models.CharField(max_length=30, help_text="Название статуса")
 
 class Req(models.Model):
     """
@@ -31,7 +39,7 @@ class Req(models.Model):
     
     """
     student = models.ForeignKey(Student, on_delete=models.PROTECT)
-    process = models.BooleanField(default="False")
+    status = models.ForeignKey(Status, on_delete=models.PROTECT, default=1)
 
     def get_absolute_url(self):
         return reverse("req-detail", kwargs={"pk": self.pk})

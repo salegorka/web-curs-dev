@@ -26,8 +26,10 @@ def logout_page(request):
     )
 
 
-class ReqListView(generic.ListView):
+class NewReqListView(generic.ListView):
     model = Req
+    template_name = "req/new_list.html"
+    queryset = Req.objects.filter(status=1)
 
 class ReqDetailView(generic.DetailView):
     model = Req
