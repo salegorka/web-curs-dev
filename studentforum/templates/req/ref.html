@@ -1,0 +1,21 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %} <title>Сайт для абитуриентов</title> {% endblock %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/ref.css' %}">
+</head>
+<body class="ref-body">
+<div class="ref-head">
+    <p style="text-transform: uppercase;">министерство образования и науки российской федерации</p>
+    <p>Федеральное государственное бюджетное образовательное учреждение высшего образования</p>
+    <p>"Институт нефтепереработки и нефтехимии в г. Салават"</p>
+    <hr>
+    <p>Губкина ул., д. 22б, г. Салават, 453250</p>
+    <p class="ref-date">{% now "d-m-Y" %} </p>
+    <p>справка</p>
+    
+</div>
+</body>

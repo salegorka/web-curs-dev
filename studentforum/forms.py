@@ -14,3 +14,14 @@ class UserRegistrationForm(forms.ModelForm):
         if cd['password'] != cd['password2']:
             raise forms.ValidationError('Введенные пароли не совпадают')
         return cd['password2']
+
+from .models import Status
+
+class StatusEditForm(forms.Form):
+    all_status = list(Status.objects.all())
+    choice_status = []
+    for status in all_status:
+        choice_status.append((status.id, status.name))
+    status_field = forms.ChoiceField(choices=choice_status, label="Новый статус")
+
+

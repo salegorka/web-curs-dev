@@ -1,9 +1,9 @@
 {% extends 'page_template.html' %}
 
-{% block content %}
+{% block auth %}
 <div class="main-left">
     <p class="">
-        Вы успещно вышли с сайта!
+        Вы успещно вышли с сайта! <a href="{% url "index" %}">Главная</a>
     </p>
 </div>
 {% endblock %}

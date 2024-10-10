@@ -1,6 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views import generic
-from .models import Req 
+from .models import Req, Status
+from .forms import StatusEditForm
+from django.http import HttpResponseRedirect
 
 # Create your views here.
 def index(request):
@@ -48,3 +50,33 @@ class DoneReqListView(generic.ListView):
 
 class ReqDetailView(generic.DetailView):
     model = Req
+    template_name = "req/req_detail.html"
+
+class RefReqDetailView(generic.DetailView):
+    model = Req
+    template_name = "req/ref.html"
+    
+
+def status_change(request, pk):
+    """
+    Страница смены статуса
+    """
+    req = get_object_or_404(Req, pk=pk)
+
+    if request.method == 'POST':
+        form = StatusEditForm(request.POST)
+
+        if form.is_valid:
+            status = get_object_or_404(Status, pk=form.data['status_field'])
+            req.status = status
+            req.save()
+            return HttpResponseRedirect(req.get_absolute_url())
+    else:
+        form = StatusEditForm(initial={"status_change": (1, "Новая")})
+    
+    context = {
+        "form": form,
+        "req": req
+    }
+    
+    return render(request, "req/req_status_change.html", context)

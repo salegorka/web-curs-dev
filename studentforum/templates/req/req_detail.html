@@ -1,6 +1,17 @@
 {% extends "page_template.html" %}
 {% block content %}
 <div class="main-left">
-    <h1 class="main-header">Заявка № {{req.pk}} </h1>
+    <div class="main-left-menu">
+        <a href="{{req.get_absolute_url}}/statuschange" class="main-left-menu-link">Изменить статус</a>
+    </div>
+    <div class="main-left-content">
+        <h1 class="main-header">Заявка № {{req.pk}} </h1>
+        <div>
+            <p> Студент {{req.student.first_name}} {{req.student.surname}} </p>
+            <p> Группа {{req.student.group.name}} </p>
+            <p> Статус {{req.status.name}} </p>
+            <p> Тип {{req.type}} </p>
+        </div>
+    </div>
 </div>
 {% endblock %}

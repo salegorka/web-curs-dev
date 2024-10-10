@@ -1,0 +1,14 @@
+{% extends "page_template.html" %}
+{% block content %}
+<div class="main-left">
+    <h1 class="main-header">Изменение статуса заявки</h1>
+    <p>Заявка №{{req.id}} Текущий статус {{req.status.name}}</p>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <table>
+            {{form.as_table}}
+        </table>
+        <input type="submit" value="Изменить"> 
+    </form>
+</div>
+{% endblock %}
