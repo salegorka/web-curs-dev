@@ -9,5 +9,7 @@ urlpatterns = [
     re_path(r"^reqs/signed$", views.SignReqListView.as_view(), name="sign_reqs"),
     re_path(r"^reqs/done$", views.DoneReqListView.as_view(), name="done_reqs"),
     re_path(r"^req/(?P<pk>\d+)$", views.ReqDetailView.as_view(), name="req-detail"),
-    re_path(r"^req/(?P<pk>\d+)/statuschange$", views.status_change,  name="status_change")
+    re_path(r"^req/(?P<pk>\d+)/statuschange$", views.status_change,  name="status_change"),
+    re_path(r"^req/(?P<pk>\d+)/datachange$", views.student_data_edit, name="data_chenge"),
+    re_path(r"^req/(?P<pk>\d+)/ref$", views.req_ref, name="req_ref")
 ]

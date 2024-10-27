@@ -16,6 +16,18 @@
     <p>Губкина ул., д. 22б, г. Салават, 453250</p>
     <p class="ref-date">{% now "d-m-Y" %} </p>
     <p>справка</p>
-    
+    <p>Подтверждает, что <span>{{req.student.surname}} {{req.student.first_name}} {{req.student.father_name}}</span</p>
+    <p>действительно является студентом федерального государственного</p>
+    <p>бюджетного образовательного учреждения высшего образования</p>
+    <p>"Институт нефтепереработки и нефтехимии в г. Салават" <span>{{req.student.group.study_form}}</span></p>
+    <p>формы обучения {{req.student.group.year}} курса</p>
+    <p>{{req.student.group.cafedra}}</p>
+    <p>на <span>{{req.student.payment_form}}</span> основе. {{req.student.document}} </p>
+    <p>Окончание обучения 30.06.{{req.student.end_year}}</p>
+    <hr>
+    <p>Выдана для</p>
+    <p>предоставления <span>по месту требования</span></p>\
+    <p>Директор института</p>
+
 </div>
 </body>

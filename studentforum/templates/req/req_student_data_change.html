@@ -1,0 +1,15 @@
+{% extends "page_template.html" %}
+{% block content %}
+<div class="main-left">
+    <h1 class="main-header">Редактирование данных студента</h1>
+    <form class="student-data-form" action="" method="POST">
+        {% for field in form %}
+            <div class="student-data-form-div">
+                {{ field.errors }}
+                {{ field.label_tag }} {{ field }}
+            </div>
+        {% endfor %}
+        <input type="submit" value="Изменить">
+    </form>
+</div>
+{% endblock %}

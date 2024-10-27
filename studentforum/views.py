@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
-from .models import Req, Status
-from .forms import StatusEditForm
+from .models import Req, Status, Student
+from .forms import StatusEditForm, StudentDataEditForm
 from django.http import HttpResponseRedirect
 
 # Create your views here.
@@ -80,3 +80,37 @@ def status_change(request, pk):
     }
     
     return render(request, "req/req_status_change.html", context)
+
+def student_data_edit(request, pk):
+    """
+    Страница редактирования данных студента
+    """
+    req = get_object_or_404(Req, pk=pk)
+
+    if request.method == "POST":
+        form = StudentDataEditForm(request.POST, instance=req.student)
+
+        if form.is_valid:
+            form.save()
+            return HttpResponseRedirect(req.get_absolute_url())
+    else:
+        form = StudentDataEditForm(instance=req.student)
+    
+    context = {
+        "form": form,
+        "req": req
+    }
+
+    return render(request, "req/req_student_data_change.html", context)
+
+def req_ref(request, pk):
+    """
+    Страница со справкой для задачи
+    """
+    req = get_object_or_404(Req, pk=pk)
+
+    context = {
+        "req": req
+    }
+
+    return render(request, "req/ref.html", context)         

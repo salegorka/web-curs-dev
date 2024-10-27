@@ -16,7 +16,7 @@ class Group(models.Model):
     ]
     study_form = models.CharField(max_length=7, choices=STUDY_FORM_CHOICES, default=STUDY_FORM_CHOICES[0])
     year = models.IntegerField(default=1, help_text="Год обучения")
-
+    cafedra = models.CharField(max_length=40, default="Кафедра \"Информационных технологий\" (ИнТех)")
 
 class Student(models.Model):
     """
@@ -35,6 +35,7 @@ class Student(models.Model):
     ]
     payment_form = models.CharField(max_length=9, choices=PAYMENT_FORM_CHOICES, default=PAYMENT_FORM_CHOICES[0])
     document = models.CharField(max_length=70, default="Приказ о зачислении №1111/у от 04.08.2014")
+    end_year = models.IntegerField(default=2021, help_text="Год окончания")
 
 
 class Status(models.Model):

@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from django import forms
+from .models import Student
 
 class UserRegistrationForm(forms.ModelForm):
     password = forms.CharField(label='Password', widget=forms.PasswordInput)
@@ -24,4 +25,9 @@ class StatusEditForm(forms.Form):
         choice_status.append((status.id, status.name))
     status_field = forms.ChoiceField(choices=choice_status, label="Новый статус")
 
+from .models import Group
 
+class StudentDataEditForm(forms.ModelForm):
+    class Meta:
+        model = Student
+        fields = "__all__"
